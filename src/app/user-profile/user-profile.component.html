@@ -1,0 +1,23 @@
+<div class="card-container">
+    <div class="card">
+        <div class="pic">
+            <img class="img" [src]="user.photo" [alt]="user">
+        </div>
+        <div class="details">
+            <div class="data-container">
+                <div class="names">
+                    <p>Name: {{user.name}}</p>
+                    <p>First Name: {{user.firstName}}</p>
+                    <p [hidden]="!showAge">Age: {{user.age}}</p>
+                </div>
+                <div class="quote">
+                    <p>{{user.quote}}</p>
+                    <input type="text" [(ngModel)]="user.quote" placeholder="edit quote">
+                </div>
+            </div>
+            <div class="button-container">
+                <button (click)="toggleAge()">Show/Hide my Age</button>
+            </div>
+        </div>
+    </div>
+</div>
