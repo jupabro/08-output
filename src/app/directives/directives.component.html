@@ -1,0 +1,6 @@
+<h1 [ngClass]="{'red': isAdmin}">{{title}}</h1>
+<button>View</button>
+<br>
+<button *ngIf="isAdmin">Edit</button>
+<br />
+<button (click)="toggleRole()">change role</button>
