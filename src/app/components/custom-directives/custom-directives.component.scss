@@ -1,0 +1,42 @@
+.hoverStyle {
+  color: rgb(97, 131, 215);
+  background-color: white !important;
+}
+
+div{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: azure;
+  ul{
+    border: 1px;
+    border-color: black;
+    width:40%;
+    background-color: blanchedalmond;
+    list-style: none;
+    li{
+      padding: 20px 10px;
+      margin: 10px;
+      background-color: whitesmoke;
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-align: center;
+    }
+    li:hover {
+      border: 2px solid white;
+    }
+  }
+  button{
+    width: 40%;
+    margin: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid white;
+  }
+  button:hover {
+    background-color: white;
+  }
+}
