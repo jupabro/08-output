@@ -3,12 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BlockComponent } from './components/block/block.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { DirectivesComponent } from './components/directives/directives.component';
 import { CustomDirectivesComponent } from './components/custom-directives/custom-directives.component';
 import { HoverDirective } from './directives/hover.directive';
 import { ShowMoviesDirective } from './directives/show-movies.directive';
-
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { RouterModule, Routes } from '@angular/router'
+import { ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,14 @@ import { ShowMoviesDirective } from './directives/show-movies.directive';
     DirectivesComponent,
     CustomDirectivesComponent,
     HoverDirective,
-    ShowMoviesDirective
+    ShowMoviesDirective,
+    SignUpComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
