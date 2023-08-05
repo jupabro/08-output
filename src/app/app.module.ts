@@ -12,6 +12,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { RouterModule, Routes } from '@angular/router'
 import { ROUTES } from './app.routes';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SearchMovieComponent } from './components/search-movie/search-movie.component';
+import { YearFormatPipe } from './pipes/year-format.pipe';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,14 @@ import { ROUTES } from './app.routes';
     ShowMoviesDirective,
     SignUpComponent,
     MenuComponent,
+    SearchMovieComponent,
+    YearFormatPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

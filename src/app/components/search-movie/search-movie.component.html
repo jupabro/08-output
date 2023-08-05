@@ -1,0 +1,43 @@
+<form (ngSubmit)="searchForm.valid && onSubmit()" [formGroup]="searchForm" #myForm="ngForm">
+    <!-- <div>
+        Form submitted ? {{myForm.submitted}}
+        Form valid ? {{searchForm.valid}}
+        Form invalid ? {{searchForm.valid}}
+    </div> -->
+    <h3>Search for movie</h3>
+    <div formGroupName="name">
+        <div>
+            <label for="identifier">Identifier</label>
+            <input name="identifier" type="text" formControlName="identifier">
+        </div>
+        <div>
+            <label for="title">Title</label>
+            <input name="title" type="text" formControlName="title">
+        </div>
+        <div class="error-message" *ngIf="name.hasError('isRequired') && myForm.submitted">
+            {{ name.getError('isRequired').message }}
+        </div>
+    </div>
+    <div>
+        <label for="type">Type</label>
+        <select formControlName="type" id="type">
+            <option *ngFor="let type of types" [value]="type.value">{{ type.label }}</option>
+        </select>
+    </div>
+    <div>
+        <label for="year">Year of release</label>
+        <input name="year" type="number" formControlName="year">
+    </div>
+    <div class="error-message" *ngIf="searchForm.get('year')?.hasError('min') && myForm.submitted">
+        Year must be between {{ searchForm.get('year')?.getError('min').minimum | yearFormat}} and {{
+        searchForm.get('year')?.getError('min').maximum | yearFormat}}
+    </div>
+    <div>
+        <label for="options">select</label>
+        <select formControlName="selectedOptions">
+            <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+        </select>
+    </div>
+    <button type="reset">Restore</button>
+    <button type="submit">Save</button>
+</form>
