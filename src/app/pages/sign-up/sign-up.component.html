@@ -1,1 +1,72 @@
-<p>sign-up works!</p>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <h1>Sign up</h1>
+
+    <!-- <div>
+        Form submitted ? {{myForm.submitted}}
+        Form valid ? {{myForm.valid}}
+        Form invalid ? {{myForm.invalid}}
+    </div> -->
+
+    <fieldset>
+        <label for="first-name">First Name</label>
+        <input id="first-name" name="first-name" type="text" [(ngModel)]="model.firstName" #firstName="ngModel" required
+            minlength="3" maxlength="15" />
+    </fieldset>
+    <!-- error messages for firstname -->
+    <div *ngIf="firstName.errors && myForm.submitted">
+        <span *ngIf="firstName.errors?.['required']">First name is required</span>
+        <span *ngIf="firstName.errors?.['minlength']">The first name must have at least 3 characters</span>
+        <span *ngIf="firstName.errors?.['maxlength']">The first name must not exceed 15 characters</span>
+    </div>
+
+    <fieldset>
+        <label for="last-name">Last Name</label>
+        <input id="last-name" name="last-name" type="text" [(ngModel)]="model.lastName" #lastName="ngModel" required
+            minlength="3" maxlength="15" />
+    </fieldset>
+    <!-- error messages for lastname -->
+    <div *ngIf="lastName.errors && myForm.submitted">
+        <span *ngIf="lastName.errors?.['required']">Last name is required</span>
+        <span *ngIf="lastName.errors?.['minlength']">The last name must have at least 3 characters</span>
+        <span *ngIf="lastName.errors?.['maxlength']">The last name must not exceed 15 characters</span>
+    </div>
+
+    <fieldset>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required email>
+    </fieldset>
+    <!-- error messages for email -->
+    <div *ngIf="email.errors && myForm.submitted">
+        <span *ngIf="email.errors?.['required']">Email is required</span>
+        <span *ngIf="email.errors?.['email']">Email is invalid</span>
+    </div>
+
+    <fieldset>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+    </fieldset>
+    <fieldset>
+        <label for="passwordConfirmation">Confirm Password:</label>
+        <input id="passwordConfirmation" type="password" name="passwordConfirmation" [(ngModel)]="passwordRepeat"
+            #passwordConfirmation="ngModel" required />
+    </fieldset>
+    <!-- error messages for password -->
+    <div *ngIf="password.errors && myForm.submitted">
+        <span *ngIf="password.errors?.['required']">Password is required</span>
+
+        <span *ngIf="password.errors?.['pattern']">Password must contain at least 8 characters, including uppercase,
+            lowercase, numbers, and special characters.</span>
+    </div>
+    <div *ngIf="!password.errors && myForm.submitted">
+        <span *ngIf="passwordConfirmation.errors?.['required']">Confirm Password is required.</span>
+        <span *ngIf="!passwordConfirmation.errors && !isPasswordMatch()">
+            Password and Confirm Password do not match.
+        </span>
+    </div>
+
+    <button type="reset">Reset</button>
+    <button type="submit">Save</button>
+    <!-- <button type="submit" [disabled]="!myForm.valid || !isPasswordMatch()">Save</button> -->
+</form>
