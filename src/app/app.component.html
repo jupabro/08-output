@@ -32,4 +32,14 @@
 
 <!-- Quest 7 communication between components: @Input -->
 
-<app-developer></app-developer>
+<!-- <app-developer></app-developer> -->
+
+<!-- Quest 8 communication between components: @Output -->
+
+<app-create-onomatopia (sendOnomatopiaToParent)="onReceiveNewOnomatopia($event)"></app-create-onomatopia>
+<div class="list">
+  <h2>List of onomatopoeias</h2>
+  <ul>
+    <li *ngFor="let onomatopoeia of onomatopoeiaList">{{onomatopoeia}}</li>
+  </ul>
+</div>

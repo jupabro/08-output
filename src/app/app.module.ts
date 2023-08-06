@@ -17,6 +17,7 @@ import { SearchMovieComponent } from './components/search-movie/search-movie.com
 import { YearFormatPipe } from './pipes/year-format.pipe';
 import { DeveloperComponent } from './developer/developer.component';
 import { SkillComponent } from './skill/skill.component';
+import { CreateOnomatopiaComponent } from './components/create-onomatopia/create-onomatopia.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SkillComponent } from './skill/skill.component';
     SearchMovieComponent,
     YearFormatPipe,
     DeveloperComponent,
-    SkillComponent
+    SkillComponent,
+    CreateOnomatopiaComponent
   ],
   imports: [
     BrowserModule,

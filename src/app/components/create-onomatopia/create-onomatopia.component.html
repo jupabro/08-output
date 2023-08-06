@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Create New Onomatopia</h2>
+    <form [formGroup]="createForm" (ngSubmit)="createOnomatopia()">
+        <div class="input-container">
+            <label for="newOnomatopia">New Onomatopia:</label>
+            <input type="text" id="newOnomatopia" formControlName="newOnomatopia" class="input">
+            <div *ngIf="createForm.get('newOnomatopia')?.invalid && (createForm.get('newOnomatopia')?.dirty || createForm.get('newOnomatopia')?.touched)"
+                class="error-message">
+                <span *ngIf="createForm.get('newOnomatopia')?.errors?.['required']">Onomatopia is required.</span>
+            </div>
+        </div>
+        <button type="submit" [disabled]="createForm.invalid" class="button">Create Onomatopia</button>
+    </form>
+</div>
