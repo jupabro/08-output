@@ -15,6 +15,8 @@ import { ROUTES } from './app.routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchMovieComponent } from './components/search-movie/search-movie.component';
 import { YearFormatPipe } from './pipes/year-format.pipe';
+import { DeveloperComponent } from './developer/developer.component';
+import { SkillComponent } from './skill/skill.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { YearFormatPipe } from './pipes/year-format.pipe';
     SignUpComponent,
     MenuComponent,
     SearchMovieComponent,
-    YearFormatPipe
+    YearFormatPipe,
+    DeveloperComponent,
+    SkillComponent
   ],
   imports: [
     BrowserModule,

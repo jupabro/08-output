@@ -1,0 +1,31 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: rgb(251, 249, 249);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0 10px;
+}
+
+app-skill {
+  display: block;
+  margin-bottom: 15px;
+}
